@@ -33,8 +33,7 @@ namespace BankApp.View
             new LoginController().Validation(txBoxCPF.Text, txBoxPassword.Text);
             //string path = Directory.GetDirectoryRoot(Environment.CurrentDirectory);
             //string path = Directory.GetCurrentDirectory();
-            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + @"\Database\";
-            Console.WriteLine(path);
+
 
         }
 

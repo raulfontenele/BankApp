@@ -29,10 +29,15 @@ namespace BankApp.Controller
                 database.Connect();
 
                 string passwordHashed = new Security().CalculateHash(HashFunctions.SHA256, password);
+                string accountNumber = GetNumberAccount().ToString();
 
                 List<String> listFields = new List<string>() { "First_Name", "Last_Name", "CPF", "Account_Number", "Password" };
-                List<String> listValues = new List<string>() { name, lastName, cpf, GetNumberAccount().ToString(), passwordHashed };
+                List<String> listValues = new List<string>() { name, lastName, cpf, accountNumber, passwordHashed };
                 database.InsertValues("Client", listFields, listValues);
+
+                listFields = new List<string>() { "Account_Number", "Balance" };
+                listValues = new List<string>() { accountNumber, "0" };
+                database.InsertValues("ClientsBalance", listFields, listValues);
             }
             catch(Exception e)
             {

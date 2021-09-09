@@ -12,4 +12,10 @@ namespace BankApp.Extensions
         SHA256,
         MD5
     }
+    public enum RegisterType
+    {
+        Insert,
+        Remove,
+        Invest
+    }
 }

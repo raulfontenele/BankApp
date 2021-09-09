@@ -32,7 +32,6 @@ namespace BankApp.Model
                 Console.WriteLine(e.Message.ToString());
             }
         }
-
         public DataTable SearchCondition(string tableName, List<string> fields, List<string> parameters)
         {
             DataTable results = new DataTable();
@@ -79,7 +78,6 @@ namespace BankApp.Model
             }
             return results;
         }
-
         public bool InsertValues(string tableName, List<string> fields, List<string> parameters)
         {
             bool response;
@@ -103,6 +101,43 @@ namespace BankApp.Model
                     if (i != fields.Count - 1) query = String.Concat(query, ", ");
                 }
                 query = String.Concat(query, " )");
+
+                command.CommandText = query;
+                command.Connection = connection;
+                int numLines = command.ExecuteNonQuery();
+                response = (numLines != 0) ? true : false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+                response = false;
+            }
+            return response;
+        }
+        public bool UpdateValues(string tableName, List<string> fields, List<string> parameters, List<string> fieldsCondition, List<string> parametersCondition)
+        {
+            bool response;
+            try
+            {
+                if (fields.Count != parameters.Count) throw new Exception("Number of fields isn't the same as parameters");
+                if (fieldsCondition.Count != parametersCondition.Count) throw new Exception("Number of fields isn't the same as parameters");
+
+                SqlCeCommand command = new SqlCeCommand();
+
+                string query = "UPDATE " + tableName + " SET ";
+                for (int i = 0; i < fields.Count; i++)
+                {
+                    command.Parameters.AddWithValue(String.Concat("@", fields[i]), parameters[i]);
+                    query = String.Concat(query, fields[i], " = @", fields[i]);
+                    if (i != fields.Count - 1) query = String.Concat(query, ", ");
+                }
+                query = String.Concat(query, " WHERE ");
+                for (int i = 0; i < fieldsCondition.Count; i++)
+                {
+                    command.Parameters.AddWithValue(String.Concat("@", fieldsCondition[i]), parametersCondition[i]);
+                    query = String.Concat(query, fieldsCondition[i], " = @", fieldsCondition[i]);
+                    if (i != fields.Count - 1) query = String.Concat(query, ", ");
+                }
 
                 command.CommandText = query;
                 command.Connection = connection;

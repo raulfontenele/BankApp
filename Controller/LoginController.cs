@@ -48,7 +48,7 @@ namespace BankApp.Controller
             uint account_number = (uint)(Convert.ToDouble(clientData.Rows[0]["Account_Number"]));
 
             ICliente client = new Client(firstName, lastName, cpf, account_number);
-            IAccount account = new Account(client);
+            IAccount account = new Account(client, database);
             AccountController.SetAccount(account);
             IndexController.Action("Account");
         }

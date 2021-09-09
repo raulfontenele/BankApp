@@ -34,20 +34,21 @@ namespace BankApp.View
             this.btnRemove = new FontAwesome.Sharp.IconButton();
             this.btnExtract = new FontAwesome.Sharp.IconButton();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.panelTitle = new System.Windows.Forms.Panel();
+            this.btnTransfer = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panelMenu.Controls.Add(this.btnTransfer);
             this.panelMenu.Controls.Add(this.btnInvest);
             this.panelMenu.Controls.Add(this.btnRemove);
             this.panelMenu.Controls.Add(this.btnExtract);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(214, 500);
+            this.panelMenu.Size = new System.Drawing.Size(228, 500);
             this.panelMenu.TabIndex = 5;
             // 
             // btnInvest
@@ -65,7 +66,7 @@ namespace BankApp.View
             this.btnInvest.Margin = new System.Windows.Forms.Padding(0);
             this.btnInvest.Name = "btnInvest";
             this.btnInvest.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnInvest.Size = new System.Drawing.Size(214, 99);
+            this.btnInvest.Size = new System.Drawing.Size(228, 99);
             this.btnInvest.TabIndex = 6;
             this.btnInvest.Text = "Investimento";
             this.btnInvest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -85,7 +86,7 @@ namespace BankApp.View
             this.btnRemove.Location = new System.Drawing.Point(0, 0);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnRemove.Size = new System.Drawing.Size(214, 99);
+            this.btnRemove.Size = new System.Drawing.Size(228, 99);
             this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "Saque";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -105,7 +106,7 @@ namespace BankApp.View
             this.btnExtract.Location = new System.Drawing.Point(0, 105);
             this.btnExtract.Name = "btnExtract";
             this.btnExtract.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnExtract.Size = new System.Drawing.Size(214, 99);
+            this.btnExtract.Size = new System.Drawing.Size(228, 99);
             this.btnExtract.TabIndex = 4;
             this.btnExtract.Text = "Extrato";
             this.btnExtract.UseVisualStyleBackColor = true;
@@ -114,18 +115,32 @@ namespace BankApp.View
             // contentPanel
             // 
             this.contentPanel.AutoSize = true;
-            this.contentPanel.Location = new System.Drawing.Point(214, 95);
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.Location = new System.Drawing.Point(228, 0);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(759, 405);
+            this.contentPanel.Size = new System.Drawing.Size(745, 500);
             this.contentPanel.TabIndex = 6;
             // 
-            // panelTitle
+            // btnTransfer
             // 
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Location = new System.Drawing.Point(214, 0);
-            this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(759, 99);
-            this.panelTitle.TabIndex = 7;
+            this.btnTransfer.FlatAppearance.BorderSize = 0;
+            this.btnTransfer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransfer.Font = new System.Drawing.Font("NSimSun", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransfer.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnTransfer.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            this.btnTransfer.IconColor = System.Drawing.Color.DarkCyan;
+            this.btnTransfer.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTransfer.IconSize = 40;
+            this.btnTransfer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransfer.Location = new System.Drawing.Point(0, 300);
+            this.btnTransfer.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnTransfer.Size = new System.Drawing.Size(228, 99);
+            this.btnTransfer.TabIndex = 7;
+            this.btnTransfer.Text = "Transferência";
+            this.btnTransfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTransfer.UseVisualStyleBackColor = true;
             // 
             // AccountForm
             // 
@@ -133,7 +148,6 @@ namespace BankApp.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(973, 500);
             this.Controls.Add(this.contentPanel);
-            this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Name = "AccountForm";
             this.Text = "AccontForm";
@@ -150,7 +164,7 @@ namespace BankApp.View
         private FontAwesome.Sharp.IconButton btnRemove;
         private FontAwesome.Sharp.IconButton btnExtract;
         private System.Windows.Forms.Panel contentPanel;
-        private System.Windows.Forms.Panel panelTitle;
         private FontAwesome.Sharp.IconButton btnInvest;
+        private FontAwesome.Sharp.IconButton btnTransfer;
     }
 }

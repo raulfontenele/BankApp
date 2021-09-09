@@ -23,5 +23,10 @@ namespace BankApp.Model
             set;
             get;
         }
+        uint AccountNumber
+        {
+            set;
+            get;
+        }
     }
 }

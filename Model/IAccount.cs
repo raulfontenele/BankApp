@@ -12,7 +12,8 @@ namespace BankApp.Model
         void TransferValues(IAccount account);
         void Investment(float value);
         void Statements();
-        void InsertValues();
-        void RemoveValues();
+        void InsertValues(float value);
+        void RemoveValues(float value);
+        float GetBalanceAvailable();
     }
 }
