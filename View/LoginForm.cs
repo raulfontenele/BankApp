@@ -42,6 +42,11 @@ namespace BankApp.View
             IndexController.Action("Registration");
         }
 
+        private void txBoxCPF_TextChanged(object sender, EventArgs e)
+        {
+            if (lbCPF.Visible == true) lbCPF.Visible = false;
+        }
+
         //private void txBoxCPF_TextChanged(object sender, EventArgs e)
         //{
         //    var cpf = Convert.ToUInt64(txBoxCPF.Text.Replace(".", ""));

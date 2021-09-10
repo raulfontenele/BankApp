@@ -61,10 +61,26 @@ namespace BankApp.Model
         {
             throw new NotImplementedException();
         }
-
-        public void Statements()
+        public uint GetAccountNumber()
         {
-            throw new NotImplementedException();
+            return client.AccountNumber;
+        }
+
+        public DataTable Statements(int months)
+        {
+            //string currentDatetime = DateTime.Now.ToString();
+            //string lastDatetime = DateTime.Now.AddMonths(-months).ToString();
+
+            List<string> fields = new List<string>() { "Account_Number" };
+
+            List<string> parameters = new List<string>() { GetAccountNumber().ToString() };
+
+            database.Connect();
+            DataTable results = database.SearchCondition("ClientsStatement", fields, parameters);
+            //DataTable results = database.SearchBetween("ClientsStatement", fields, parameters);
+            database.Dispose();
+
+            return results;
         }
 
         public void TransferValues(IAccount account)

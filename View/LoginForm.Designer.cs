@@ -39,6 +39,7 @@ namespace BankApp.View
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.iconBank = new FontAwesome.Sharp.IconPictureBox();
+            this.lbCPF = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPassword)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -109,6 +110,7 @@ namespace BankApp.View
             // 
             // panelLogin
             // 
+            this.panelLogin.Controls.Add(this.lbCPF);
             this.panelLogin.Controls.Add(this.txBoxCPF);
             this.panelLogin.Controls.Add(this.btnCreateAccount);
             this.panelLogin.Controls.Add(this.btnLogin);
@@ -135,6 +137,7 @@ namespace BankApp.View
             this.txBoxCPF.Name = "txBoxCPF";
             this.txBoxCPF.Size = new System.Drawing.Size(225, 29);
             this.txBoxCPF.TabIndex = 11;
+            this.txBoxCPF.TextChanged += new System.EventHandler(this.txBoxCPF_TextChanged);
             this.txBoxCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txBoxCPF_KeyPress);
             // 
             // btnCreateAccount
@@ -182,6 +185,17 @@ namespace BankApp.View
             this.iconBank.TabIndex = 8;
             this.iconBank.TabStop = false;
             // 
+            // lbCPF
+            // 
+            this.lbCPF.AutoSize = true;
+            this.lbCPF.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCPF.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lbCPF.Location = new System.Drawing.Point(117, 179);
+            this.lbCPF.Name = "lbCPF";
+            this.lbCPF.Size = new System.Drawing.Size(38, 23);
+            this.lbCPF.TabIndex = 12;
+            this.lbCPF.Text = "CPF";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,5 +226,6 @@ namespace BankApp.View
         private FontAwesome.Sharp.IconPictureBox iconBank;
         private System.Windows.Forms.Button btnCreateAccount;
         private System.Windows.Forms.TextBox txBoxCPF;
+        private System.Windows.Forms.Label lbCPF;
     }
 }

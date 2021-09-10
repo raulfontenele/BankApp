@@ -48,5 +48,13 @@ namespace BankApp.View
                 UpdateScreen();
             }
         }
+
+        private void txBoxValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Delete && e.KeyChar != (char)Keys.Back && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

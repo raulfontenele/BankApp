@@ -63,6 +63,37 @@ namespace BankApp.Model
             }
             return results;
         }
+        public DataTable SearchBetween(string tableName, List<string> fields, List<string> parameters)
+        {
+            DataTable results = new DataTable();
+            try 
+            { 
+                SqlCeCommand command = new SqlCeCommand();
+                command.Connection = connection;
+
+
+                string query = "SELECT * FROM " + tableName + " WHERE (";
+                for (int i = 0; i < fields.Count; i++)
+                {
+                    query = String.Concat(query,fields[i], " BETWEEN  @", "field",(2*i).ToString(), " AND @", "field", (2 * i + 1).ToString(), ")");
+                    if (i != fields.Count - 1) query = String.Concat(query, " OR ");
+                    command.Parameters.AddWithValue(String.Concat("@field", (2 * i).ToString()), parameters[2 *i]);
+                    command.Parameters.AddWithValue(String.Concat("@field", (2 * i + 1).ToString()), parameters[2 * i + 1]);
+                }
+                command.CommandText = query;
+                //for (int i = 0; i < fields.Count; i++) command.Parameters.AddWithValue(String.Concat("@", fields[i]), parameters[i]);
+
+                object returned = command.ExecuteReader();
+                SqlCeDataAdapter adapter = new SqlCeDataAdapter(command);
+
+                adapter.Fill(results);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message.ToString());
+            }
+            return results;
+        }
         public DataTable SearchAll(string tableName)
         {
             DataTable results = new DataTable();

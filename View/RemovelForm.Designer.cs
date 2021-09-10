@@ -62,10 +62,11 @@ namespace BankApp.View
             // 
             // txBoxValue
             // 
-            this.txBoxValue.Location = new System.Drawing.Point(324, 163);
+            this.txBoxValue.Location = new System.Drawing.Point(405, 170);
             this.txBoxValue.Name = "txBoxValue";
             this.txBoxValue.Size = new System.Drawing.Size(100, 20);
             this.txBoxValue.TabIndex = 2;
+            this.txBoxValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txBoxValue_KeyPress);
             // 
             // label1
             // 
@@ -75,9 +76,9 @@ namespace BankApp.View
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
             this.label1.Location = new System.Drawing.Point(147, 163);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 27);
+            this.label1.Size = new System.Drawing.Size(252, 27);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Saldo Disponível:";
+            this.label1.Text = "Valor Depositado/Sacado:";
             // 
             // btnRemove
             // 
